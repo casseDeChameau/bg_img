@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+h2 {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.cursor {
+    --r: 0deg;
+    position: fixed;
+    left: -8px;
+    top: -6px;
+    pointer-events: none;
+    user-select: none;
+    display: none;
+    transform: translate(var(--x), var(--y));
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .6));
+    z-index: 2;
+}
+
+.cursor svg {
+    display: block;
+    width: 28px;
+    height: 28px;
+    transform: rotate(var(--r));
+}
+
+.btn {
+    --background: rgb(255, 102, 0);
+    --shadow: rgba(100, 50, 0, 1);
+    --y: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 12px 24px;
+    color: #fff;
+    background: var(--background);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    backface-visibility: hidden;
+    box-shadow: 0 4px 12px var(--shadow);
+    transform: translateY(var(--y));
+    transition: box-shadow .3s ease, transform .3s ease;
+    /* ! */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+/* ! */
+
+.btn img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.btn:hover {
+    --y: -2px;
+    box-shadow: 0 8px 16px var(--shadow);
+}
+
+.btn:active {
+    --y: 1px;
+    box-shadow: 0 4px 8px var(--shadow);
+}
+
+html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+    font-family: Roboto, Arial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body div {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.desert-area {
+    position: relative;
+    height: 100vh;
+    width: 50vw;
+    /* ! */
+    background: center/cover;
+    background-image: url("https://www.tourdumonde.fr/wordpress/wp-content/uploads/desert.jpg");
+}
+
+.desert-area::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .5);
+}
+
+.desert-area * {
+    z-index: 1;
+}
+
+.origami-area {
+    height: 100vh;
+    width: 50vw;
+}
+
+.origami-area * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    ;
+}
+
+.paper {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.origami-area .paper img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    top: -10px;
+    border: 2px dotted pink;
+}
